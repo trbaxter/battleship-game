@@ -1,0 +1,41 @@
+The main method starts the game by initiating the setup.
+
+
+This instantiates a private and final version of the gameHelper class.
+These access modifiers are used so that the virtual game grid and the ship placements can't be changed.
+
+Next, an arrayList is created that will hold the three battleship objects.
+This is also private and final to prevent any unnecessary changes.
+A private tally of the number of user guesses is created as well.
+
+Three battleships are instantiated, followed by assigning their names (the types of the ship),
+and adding them to the battleship list.
+
+A message is displayed to the user indicating the title of the game, the goal, and some instructions.
+
+For each battleship in the battleship list, we assign it to the "battleshipToSet" variable and run it through the
+placeBattleship method found in the gameHelper class. This assigns the locations of each battleship on the grid using
+the proper column and row labels. (i.e. "g1" "g2" "g3")
+
+
+Following the setup, the main method initiates the start playing method.
+This states that as long as the battleship list is not empty, the gameHelper class will prompt the user for a guess.
+When the guess is received, it passes the guess to the checkUserGuess() method.
+
+First, the userGuess is checked for any invalid conditions, such as being null, or going outside the board.
+If so, a warning message is displayed to the user.
+
+If no invalid conditions are detected, then the guess tally is increased by 1. The default result of a guess is "miss".
+
+For each battleship in the battleship list, we assign it to the "battleship" variable and run it through the
+checkYourself() method as defined in the battleship object class. The class will return "Miss!", "Hit!", or a battleship
+destroyed message. The result of message is passed back.
+If miss, just display the miss.
+If hit, break from the loop and continue the guessing process.
+If the battleship is destroyed, remove that particular ship from the battleshipList, then continue guessing.
+This continues until the battleshipList is empty.
+
+Once empty, the finishGame() method is initiated.
+This displays a message to the user saying game over and checks the number of guesses they made.
+If less than or equal to 18, the score is displayed with a positive message.
+If greater than 18, the score is displayed with a negative message.

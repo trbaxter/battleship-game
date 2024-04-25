@@ -1,0 +1,71 @@
+We define a variable, named "alphabet", representing the letters that the columns of the grid will use.
+It's private so that outside classes can't access it.
+It's static because this variable will only be used within the GameHelper class.
+It's final because we don't want the column labels changed after being initialized.
+
+The gridSize and shipCount variables are also private to prevent outside access.
+GridSize is final, as we don't want the virtual board size to change, but shipCount is not. That number will change
+to the maximal number of ships on the board down to zero as the player successfully guesses their locations.
+
+An integer array is also initialized of size equivalent to the value of gridSize (49).
+
+
+
+In the getUserInput method, a null String named "inputLine" is created to hold a user's input.
+A prompt is also printed in the console that asks a user for their guess.
+
+Within the try block, we create a BufferedReader-type variable to hold the input provided by the user.
+This is used instead of Scanner, as Scanner is used to read primitive inputs. Guesses like "a1" are not primitive.
+The .readLine() method is used to grab the user input and it's placed within the "is" variable.
+If the input received from the user is empty (i.e. a blank string), then the method returns a null.
+To account for the possibility of some issue occurring with the input/output generation of this method,
+an IOException has been added in the catch section informing the user.
+Then finally, the method and returns the guess in lowercase form to avoid dealing with case-sensitivity.
+
+
+The placeBattleship method is used to randomly assign ships to a location on the virtual board.
+First, we feed the method an integer representing the size of a ship ("shipSize").
+An arrayList named "shipCells" is created to hold the final cell positions of that ship once generated.
+
+Five different variables are instantiated:
+1.) A "temp" string that will contain the letter to assign to the column of the ship cell,
+2.) An integer "coords" array that will hold the cell positions of the ship,
+3.) An integer "attempts" representing how many attempts have been made to place the ship on the board,
+4.) A boolean "success" to control the automated ship assignment process defaulted as false,
+5.) An integer "location" used to grab a spot on the grid.
+
+Next, the number of ships being counted is increased by one.
+An integer "incr" represents the horizontal increment.
+The following if-loop checks to see if the current shipCount is an odd number. If it is, set the vertical increment.
+
+The following while-loop continues until all the ship cells are defined (changing the success boolean to true) AND
+that it takes less than 200 times to do so (preventing an infinite loop in the case of an issue).
+
+A random starting point for the ship is found by multiplying a number between 0 and 1, multiplying it by the size of the
+the grid, then casting it as an integer to eliminate the decimal.
+Create an index variable "x" starting at zero to represent the adjacent spot of a ship cell.
+
+The process checks if successful first, then also verifies if the index variable is smaller than the ship size.
+If both are true, then the numbered cell from "location" is added to the "coords" array in the first position.
+X is then increased by 1, and location is increased by the size of the grid.
+If the new location is out of bounds above the grid, then set the success flag to false.
+If the new location is out of bounds from the right edge, then set the success flag to false.
+Otherwise, continue through the process as many times as the size of the ship and correct any out of bounds cells.
+This results in the "coords" array containing three grid values, each less than 49.
+
+In the last section, an index variable "x" is created and started at 0. This represents each position in the coords
+array that we're working with. We also create integer row and column variables to hold the row and column numbers
+from the numbers in the coords array.
+
+As we work with each number in the coords array:
+
+1.) At the xth position within coords, take that value and set it to 1 on the grid.
+(i.e. grid[5] = 1 sets the 6th cell out of the 49 total cells to 1 indicating that it's in use.)
+
+2.) The row is that xth value divided by the grid length using integer division. The remainder is discarded.
+
+3.) The column is equal to the x value mod gridLength.
+
+4.) The temp string is assigned the letter value associated with the row of the x value.
+
+This process is continued until each shipCell is decoded for use with the game and returned at the end of the method.
