@@ -1,0 +1,16 @@
+Create an arrayList, named "locationCells", that will contain objects of type String.
+The access modifier of private is used so the locations can't be adjusted once the game begins.
+This will represent the positions of a battleship on the grid.
+
+The locationCells arrayList is set using the setLocationCells setter method.
+The name of the ship is set using the setName setter method.
+
+The user's guess is passed into the checkYourself() method, where a "Miss!" is the default result to a guess.
+We find out if the user's guess is found in the arrayList by using the .indexOf() method.
+If it's in locationCells, an index value of 0, 1, or 2 is returned. If it isn't in locationCells, a -1 is returned.
+
+An if-loop runs if the index is within the arrayList, starting off by removing the index so the same spot can't be hit.
+If all 3 cells in the arrayList are removed, a message is displayed to the user saying they sunk a ship.
+If only a single cell in the arrayList is removed, a message is displayed to the user saying they hit a ship.
+
+Whether a hit or a miss occurs, the result is returned at the end of the method.
