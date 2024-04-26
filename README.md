@@ -50,24 +50,20 @@ flowchart LR
     D3{<center> Ships\nremaining?}:::decision
 %% Other %%
     null[&nbsp]:::empty
-
 %% Links %%
     start --> A1
     A1 --> O1
     O1 --> I1
     I1 --> D1
-    D1 -.-> |\n\n\n&nbsp Miss! &nbsp\n\n\n|I1
-    D1 ---- |&nbsp Hit! &nbsp|A2
+    D1 -.->|\n\n\n&nbsp Miss! &nbsp\n\n\n| I1
+    D1 ----|&nbsp Hit! &nbsp| A2
     A2 --> D2
-    D2 -.-> |&nbsp No &nbsp|I1
-    D2 --> |&nbsp Yes &nbsp|A3
-    D3 -.-> |&nbsp Yes &nbsp|I1
+    D2 -.->|&nbsp No &nbsp| I1
+    D2 -->|&nbsp Yes &nbsp| A3
+    D3 -.->|&nbsp Yes &nbsp| I1
     A3 --> D3
-    D3 --> |&nbsp No &nbsp|O2
+    D3 -->|&nbsp No &nbsp| O2
     O2 --> finish
-
-    
-    
 %% Class Colors %%
     classDef start stroke: #0f0, stroke-width: 2.5px;
     classDef finish stroke: #f00, stroke-width: 2.5px;
@@ -75,32 +71,33 @@ flowchart LR
     classDef action stroke: #196de3, stroke-width: 2.5px;
     classDef input stroke: #ca14de, stroke-width: 2.5px;
     classDef output stroke: #ede205, stroke-width: 2.5px;
-    classDef empty width:0px, height:0px;
+    classDef empty width: 0px, height: 0px;
 ```
 
 ## Diagram Legend
+
 ```mermaid
 
 flowchart LR
-    
+
 %% Diagram Legend Shapes %%    
-        L1(["&emsp; &emsp;"]):::start
-        L2["&emsp; &emsp; &nbsp "]:::action
-        L3[/"&emsp; &emsp; &nbsp "/]:::output
-        L4[/"&emsp; &emsp; &nbsp"/]:::input
-        L5{"&nbsp"}:::decision
-        L6(["&emsp; &emsp;"]):::finish
+    L1(["&emsp; &emsp;"]):::start
+    L2["&emsp; &emsp; &nbsp "]:::action
+    L3[/"&emsp; &emsp; &nbsp "/]:::output
+    L4[/"&emsp; &emsp; &nbsp"/]:::input
+    L5{"&nbsp"}:::decision
+    L6(["&emsp; &emsp;"]):::finish
 %% Null Spaces for Shape Labels %%        
-        null[&nbsp]:::empty
-        null2[&nbsp]:::empty
-        null3[&nbsp]:::empty
-        null4[&nbsp]:::empty
-        null5[&nbsp]:::empty
-        null6[&nbsp]:::empty
+    null[&nbsp]:::empty
+    null2[&nbsp]:::empty
+    null3[&nbsp]:::empty
+    null4[&nbsp]:::empty
+    null5[&nbsp]:::empty
+    null6[&nbsp]:::empty
 %% Links %%        
-        L1 ~~~ L2 ~~~ L3 ~~~ L4 ~~~ L5 ~~~ L6
-        null["App Start"] ~~~ null2["Program\nAction"] ~~~ null3["Program &emsp; \n Output &emsp;"]
-        null3 ~~~ null4["User &nbsp &nbsp\n Input &nbsp &nbsp"] ~~~ null5["Decision"] ~~~ null6[App end]
+    L1 ~~~ L2 ~~~ L3 ~~~ L4 ~~~ L5 ~~~ L6
+    null["App Start"] ~~~ null2["Program\nAction"] ~~~ null3["Program &emsp; \n Output &emsp;"]
+    null3 ~~~ null4["User &nbsp &nbsp\n Input &nbsp &nbsp"] ~~~ null5["Decision"] ~~~ null6[App end]
 %% Class Colors %%
     classDef start stroke: #0f0, stroke-width: 2.5px;
     classDef finish stroke: #f00, stroke-width: 2.5px;
@@ -108,7 +105,7 @@ flowchart LR
     classDef action stroke: #196de3, stroke-width: 2.5px;
     classDef input stroke: #ca14de, stroke-width: 2.5px;
     classDef output stroke: #ede205 , stroke-width: 2.5px;
-    classDef empty width:0px, height:0px;
+    classDef empty width: 0px, height: 0px;
 ```
 
 <br>
