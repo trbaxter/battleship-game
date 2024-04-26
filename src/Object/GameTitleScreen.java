@@ -21,7 +21,7 @@ public class GameTitleScreen {
                 """);
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.println("""
-                
+                                
                 The goal of the game is is to sink three of the enemy's battleships.
                 Each battleship is placed somewhere on a virtual 7x7 grid spanning three grid cells.
 

@@ -1,11 +1,19 @@
+import Object.Battleship;
+import Object.GameTitleScreen;
+
 import java.util.ArrayList;
-import Object.*;
 
 public class Main {
 
     private final GameHelper helper = new GameHelper();
     private final ArrayList<Battleship> battleshipList = new ArrayList<>();
     private int numOfGuesses = 0;
+
+    public static void main(String[] args) {
+        Main game = new Main();
+        game.setUpGame();
+        game.startPlaying();
+    }
 
     private void setUpGame() {
 
@@ -75,12 +83,6 @@ public class Main {
             System.out.println(STR."Your score is: \{numOfGuesses} guesses.");
             System.out.println("Try a little harder next time.");
         }
-    }
-
-    public static void main(String[] args) {
-        Main game = new Main();
-        game.setUpGame();
-        game.startPlaying();
     }
 
 }
