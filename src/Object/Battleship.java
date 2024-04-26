@@ -1,11 +1,13 @@
+package Object;
+
 import java.util.ArrayList;
 
 public class Battleship {
     private ArrayList<String> locationCells;
     private String name;
 
-    public void setLocationCells(ArrayList<String> loc) {
-        locationCells = loc;
+    public void setLocationCells(ArrayList<String> location) {
+        locationCells = location;
     }
 
     public void setName(String n) {
@@ -20,7 +22,7 @@ public class Battleship {
 
             if (locationCells.isEmpty()) {
                 result = "Battleship destroyed!";
-                System.out.println("Hit! You sunk an enemy " + name + ".");
+                System.out.println(STR."Hit! You sunk an enemy \{name}.");
             } else {
                 result = "Hit!";
             }
