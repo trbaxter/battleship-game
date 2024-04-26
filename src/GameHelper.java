@@ -1,7 +1,5 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GameHelper {
     private static final String alphabet = "abcdefg";      // Column letters
@@ -10,16 +8,11 @@ public class GameHelper {
     private int shipCount = 0;
 
     public String getUserInput(String prompt) {
-        String inputLine = null;
-        System.out.print(prompt + " ");
-        try {
-            BufferedReader is = new BufferedReader(new InputStreamReader(System.in)); // User input isn't primitive
-            inputLine = is.readLine();                                                // So BuffReader inst. of Scanner
-            if (inputLine.isEmpty()) return null;
-        } catch (IOException e) {                        // Added in case of any input or output interruptions
-            System.out.println("IOException: " + e);
-        }
-        assert inputLine != null;
+        String inputLine;
+        System.out.print(STR."\{prompt} ");
+        Scanner in = new Scanner(System.in);
+        inputLine = in.next();
+        if (inputLine.isEmpty()) return null;
         return inputLine.toLowerCase();                  // Lowercase avoids case sensitivity issues with guesses
     }
 

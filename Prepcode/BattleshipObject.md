@@ -1,4 +1,5 @@
 ### Method Logic
+
 <br>
 
 `METHOD`_public static void main(String[] args)_  

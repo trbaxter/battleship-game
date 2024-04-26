@@ -1,27 +1,52 @@
+import Object.Battleship;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 public class BattleshipObjectTest {
+    private final Battleship battleship = new Battleship();
+    private final ArrayList<String> location = new ArrayList<>();
 
-    public static void main(String[] args) {
-        Battleship battleship = new Battleship();
-        ArrayList<String> loc = new ArrayList<>();
-
-        loc.add("a1");
-        loc.add("a2");
-        loc.add("a3");
-        battleship.setLocationCells(loc);
-        battleship.setName("testCom");
+    @Test
+    public void testShipHit() {
+        location.add("a1");
+        location.add("a2");
+        location.add("a3");
+        battleship.setLocationCells(location);
+        battleship.setName("test ship");
 
         String userGuess = "a1";
-        System.out.println("\nTesting battleship behavior with a user guess of " + userGuess + ".");
-        System.out.println("\nBattleship object located in cells a1, a2, and a3.");
         String result = battleship.checkYourself(userGuess);
-        String testResult = "failed";
 
-        if (result.equals("Hit!")) {
-            testResult = "passed";
-        }
+        assertEquals(result, "Hit!");
+    }
 
-        System.out.println(testResult);
+    @Test
+    public void testShipMiss() {
+        location.add("a1");
+        location.add("a2");
+        location.add("a3");
+        battleship.setLocationCells(location);
+        battleship.setName("test ship");
+
+        String userGuess = "a5";
+        String result = battleship.checkYourself(userGuess);
+
+        assertEquals(result, "Miss!");
+    }
+
+    @Test
+    public void testShipDestroy() {
+        location.add("a1");
+        battleship.setLocationCells(location);
+        battleship.setName("test ship");
+
+        String userGuess = "a1";
+        String result = battleship.checkYourself(userGuess);
+
+        assertEquals(result, "Battleship destroyed!");
     }
 }

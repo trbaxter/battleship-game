@@ -1,4 +1,5 @@
 ### Instance Variable Declarations
+
 <br>  
 
 `DECLARE` and instantiate the _GameHelper_ instance variable named _helper_.
@@ -8,7 +9,9 @@
 `DECLARE` an _int_ variable to hold the number of user guesses, named _numOfGuesses_, and set it to zero.
 
 ---
+
 ### Method Declarations
+
 <br>
 
 `DECLARE` a _setUpGame()_ method to create and initialize the battleship objects with names and locations.
@@ -23,7 +26,9 @@ object's _checkYourself()_ method.
 `DECLARE` a _finishGame()_ method that prints a message about the player's performance based on the number of guesses.
 
 ---
+
 ### Method Logic
+
 <br>
 
 **METHOD:** _void setUpGame()_  
