@@ -28,26 +28,25 @@ When the setup is complete, the game asks the player for the first guess.
 ## Design Diagram
 
 ```mermaid
-flowchart LR
-
+flowchart TB
 
 %% Start %%
-    start([<center> Start]):::start
+    start([Start]):::start
 %% End %% 
-    finish([<center> Finish]):::finish
+    finish([Finish]):::finish
 %% Actions %%
-    A1[<center> &nbsp Set up &nbsp\n &nbsp game &nbsp\n]:::action
-    A2[<center> Remove\n cell]:::action
-    A3[<center> Remove\n Battleship]:::action
+    A1[&nbsp Set up &nbsp \n &nbsp game &nbsp \n]:::action
+    A2[Remove \n cell]:::action
+    A3[Remove \n Battleship]:::action
 %% Input %%
-    I1[/<center> &nbsp User enters\nguess&nbsp/]:::input
+    I1[/&nbsp User enters \n guess&nbsp/]:::input
 %% Output %%
-    O1[/<center> &nbsp&nbsp&nbsp Display &nbsp \n &nbsp title &nbsp/]:::output
-    O2[/<center> &nbsp Game displays\n user's score &nbsp/]:::output
+    O1[/&nbsp&nbsp&nbsp Display &nbsp \n &nbsp title &nbsp/]:::output
+    O2[/&nbsp Game displays \n user's score &nbsp/]:::output
 %% Decisions %%
-    D1{<center> Hit\nor\nmiss?}:::decision
-    D2{<center> Ship\nDestroyed?}:::decision
-    D3{<center> Ships\nremaining?}:::decision
+    D1{Hit \n or \n miss?}:::decision
+    D2{Ship \n Destroyed?}:::decision
+    D3{Ships \n remaining?}:::decision
 %% Other %%
     null[&nbsp]:::empty
 %% Links %%
@@ -55,14 +54,14 @@ flowchart LR
     A1 --> O1
     O1 --> I1
     I1 --> D1
-    D1 -.->|\n\n\n&nbsp Miss! &nbsp\n\n\n| I1
-    D1 ----|&nbsp Hit! &nbsp| A2
+    D1 -.->|<b> \n\n\n&nbsp Miss! &nbsp\n\n\n| I1
+    D1 ---|<b> &nbsp Hit! &nbsp| A2
     A2 --> D2
-    D2 -.->|&nbsp No &nbsp| I1
-    D2 -->|&nbsp Yes &nbsp| A3
-    D3 -.->|&nbsp Yes &nbsp| I1
+    D2 -.->|<b> &nbsp No &nbsp| I1
+    D2 -->|<b> &nbsp Yes &nbsp| A3
+    D3 -.->|<b> &nbsp Yes &nbsp| I1
     A3 --> D3
-    D3 -->|&nbsp No &nbsp| O2
+    D3 -->|<b> &nbsp No &nbsp| O2
     O2 --> finish
 %% Class Colors %%
     classDef start stroke: #0f0, stroke-width: 2.5px;
@@ -78,26 +77,17 @@ flowchart LR
 
 ```mermaid
 
-flowchart LR
+flowchart TD
 
 %% Diagram Legend Shapes %%    
-    L1(["&emsp; &emsp;"]):::start
-    L2["&emsp; &emsp; &nbsp "]:::action
-    L3[/"&emsp; &emsp; &nbsp "/]:::output
-    L4[/"&emsp; &emsp; &nbsp"/]:::input
-    L5{"&nbsp"}:::decision
-    L6(["&emsp; &emsp;"]):::finish
-%% Null Spaces for Shape Labels %%        
-    null[&nbsp]:::empty
-    null2[&nbsp]:::empty
-    null3[&nbsp]:::empty
-    null4[&nbsp]:::empty
-    null5[&nbsp]:::empty
-    null6[&nbsp]:::empty
+    L1([" App start  "]):::start
+    L2["&nbsp Program &nbsp \n Action "]:::action
+    L3[/" Program Output "/]:::output
+    L4[/" User Input "/]:::input
+    L5{"Decision"}:::decision
+    L6([" App finish "]):::finish
 %% Links %%        
     L1 ~~~ L2 ~~~ L3 ~~~ L4 ~~~ L5 ~~~ L6
-    null["App Start"] ~~~ null2["Program\nAction"] ~~~ null3["Program &emsp; \n Output &emsp;"]
-    null3 ~~~ null4["User &nbsp &nbsp\n Input &nbsp &nbsp"] ~~~ null5["Decision"] ~~~ null6[App end]
 %% Class Colors %%
     classDef start stroke: #0f0, stroke-width: 2.5px;
     classDef finish stroke: #f00, stroke-width: 2.5px;
